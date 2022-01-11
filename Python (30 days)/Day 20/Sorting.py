@@ -1,7 +1,25 @@
-# Read a full line of input from stdin and save it to our dynamically typed variable, input_string.
-input_string = input()
+#!/bin/python3
 
-# Print a string literal saying "Hello, World." to stdout.
-print('Hello, World.')
+import math
+import os
+import random
+import re
+import sys
 
-print(input_string)
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    a = list(map(int, input().rstrip().split()))
+
+    # numSwaps
+    n_swap = 0
+    for i in range(n - 1):
+        for j in range(n - 1):
+            if a[j] > a[j + 1]:
+                a_n = a.pop(j)
+                a.insert(j + 1, a_n)
+                n_swap += 1
+
+    print("Array is sorted in", n_swap, "swaps.")
+    print("First Element:", a[0])
+    print("Last Element:", a[-1])
